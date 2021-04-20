@@ -4,7 +4,8 @@
 
 * ME
 * MY SELF
-* and I
+* and 
+* I
 
 ## kratek opis
 
