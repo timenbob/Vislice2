@@ -6,6 +6,8 @@
 * MY SELF
 * and I
 * and U
+* and 
+* I
 
 ## kratek opis
 
