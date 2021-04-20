@@ -5,6 +5,7 @@
 * ME
 * MY SELF
 * and I
+* and U
 
 ## kratek opis
 
