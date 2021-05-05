@@ -1,3 +1,4 @@
+%from model import ZMAGA, PORAZ
 <!DOCTYPE html>
 <html>
 
@@ -22,10 +23,10 @@
 
   <img src="img/{{igra.stevilo_napak()}}.jpg" alt="stopnja obešenosti">
 
-% if stanje == "W":
+% if stanje == ZMAGA:
     <h3>Bravo zmagal</h3>
 
-%elif stanje == "X"
+%elif stanje == "PORAT:
     <h3>zgubil si</h3>
     <h3>pravilno geslo je bilo:{{igra.geslo}}</h3>
     <form action="/igra/" method="post">
