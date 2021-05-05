@@ -21,7 +21,7 @@
   <h3>stopnja obešenosti</h3>
   <h4>{{igra.stevilo_napak()}}</h4>
 
-  <img src="img/{{igra.stevilo_napak()}}.jpg" alt="stopnja obešenosti">
+  <img src="/img/{{igra.stevilo_napak()}}.jpg" alt="stopnja obešenosti">
 
 % if stanje == ZMAGA:
     <h3>Bravo zmagal</h3>
