@@ -1,12 +1,6 @@
 %from model import ZMAGA, PORAZ
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="UTF-8">
-</head>
-
-<body>
+%rebase("base.tpl")
 
   <h1>Vislice</h1>
   <h2>Igraš igro:</h2>
@@ -45,6 +39,3 @@
   </form>
 %end
     
-</body>
-
-</html>
