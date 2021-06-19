@@ -1,4 +1,5 @@
 import random
+import json
 
 STEVILO_DOVOLJENIH_NAPAK = 10
 
@@ -11,9 +12,41 @@ ZMAGA = "W"
 PORAZ = "X"
 
 class Vislice:
-    def __init__(self):
-        self.igre = {}
-        self.max_id = 0
+    def __init__(self,zacetne_igre=None, zacetni_id=0):
+        self.igre = zacetne_igre or {}
+        self.max_id = zacetni_id
+        
+    def pretvori_v_json_slovar(self):
+        slovar_iger={}
+
+        for id_igre, (igra, stanje) in self.igre.items():
+            slovar_iger[id_igre] = (
+                igra.pretvori_v_jason_slovar(),
+                stanje
+            )
+        return{
+            "max_id": self.max_id,
+            "igre": slovar_iger
+        }
+
+    def zapisi_v_datoteko(self, datoteka):
+        with open(datoteka, "w") as out_file:
+            json_slovar = pretvori_v_json_slovar()
+            json.dump(json_slovar, out_file)
+
+    @classmethod
+    def dobi_iz_json_slovarja(cls, slovar):
+        slovar_iger = {}
+        for id_igre, (igra_slovar, stanje) in slovar.items():
+            slovar_iger[id_igre]=(
+                Igra.dobi_iz_json_slovarja(igra_slovar), 
+            )
+        return Vislice(slovar_iger, slovar["max_id"])
+
+    @staticmethod
+    def
+
+
         
     def prost_id_igre(self):
         self.max_id += 1
@@ -93,6 +126,17 @@ class Igra:
                     return PORAZ
                 else:
                     return NAPACNA_CRKA
+    
+    def pretvori_v_json_slovar(self):
+        return{
+            "geslo":self.geslo,
+            "crke":self.crke,
+        }
+    
+    @staticmethod
+    def dobi_iz_json_slovarja(slovar):
+        return Igra(slovar["geslo"], slovar["crka"])
+
 
 with open("besede.txt", "r", encoding="utf-8") as f:
     bazen_besed = [vrstica.strip().upper() for vrstica in f]
